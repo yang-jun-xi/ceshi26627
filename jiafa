@@ -2,12 +2,22 @@
 
 int main() {
     int a, b, sum;
+    // 输入两个数字
     printf("请输入第一个整数：");
     scanf("%d", &a);
     printf("请输入第二个整数：");
     scanf("%d", &b);
 
+    // 计算两数之和
     sum = a + b;
     printf("两数之和 = %d\n", sum);
+
+    // 判断和是奇数还是偶数
+    if (sum % 2 == 0) {
+        printf("相加结果 %d 是偶数\n", sum);
+    } else {
+        printf("相加结果 %d 是奇数\n", sum);
+    }
+
     return 0;
 }
