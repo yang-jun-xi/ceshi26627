@@ -1,23 +1,52 @@
 #include <stdio.h>
 
+// 判断一个数是否为素数
+// 是素数返回 1，不是返回 0
+int is_prime(int n) {
+    if (n <= 1) {
+        return 0;  // 小于等于1的数不是素数
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return 0;  // 有因子，不是素数
+        }
+    }
+    return 1;  // 是素数
+}
+
 int main() {
     int a, b, sum;
-    // 输入两个数字
-    printf("请输入第一个整数：");
-    scanf("%d", &a);
-    printf("请输入第二个整数：");
-    scanf("%d", &b);
+    while (1)  // 无限循环
+    {
+        printf("=====新计算=====\n");
+        printf("请输入第一个整数（输入负数退出程序）：");
+        scanf("%d", &a);
+        // 判断输入负数，结束循环
+        if (a < 0)
+        {
+            printf("程序结束！\n");
+            break;
+        }
 
-    // 计算两数之和
-    sum = a + b;
-    printf("两数之和 = %d\n", sum);
+        printf("请输入第二个整数：");
+        scanf("%d", &b);
 
-    // 判断和是奇数还是偶数
-    if (sum % 2 == 0) {
-        printf("相加结果 %d 是偶数\n", sum);
-    } else {
-        printf("相加结果 %d 是奇数\n", sum);
+        sum = a + b;
+        printf("两数之和 = %d\n", sum);
+
+        // 判断和是否为素数
+        if (is_prime(sum)) {
+            printf("结果 %d 是素数！\n", sum);
+        } else {
+            printf("结果 %d 不是素数。\n", sum);
+        }
+
+        // 判断和是奇数还是偶数
+        if (sum % 2 == 0) {
+            printf("相加结果 %d 是偶数\n", sum);
+        } else {
+            printf("相加结果 %d 是奇数\n", sum);
+        }
     }
-
     return 0;
 }
